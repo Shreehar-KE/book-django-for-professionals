@@ -11,7 +11,7 @@
 - `docker build .` - to build the image
 - *`docker-compose.yml`* - list of instructions used to run the image as a container
     ```
-    version: "3.9"
+    # version: "2.27.1-desktop.1" - version in docker-compose.yml is obsolete -->
     services:
         web:
             build: .
@@ -22,3 +22,45 @@
                 - .:/code
     ```
 - `docker compose up` & `docker compose down` to start & stop the container
+
+## Chapter 3: PostgreSQL
+- `-d` with `docker compose up` for detach mode
+- `exec` with `docker compose up` to execute commands
+  - `docker compose exec web python manage.py createsuperuser`
+- adding `psycopg2-binary==2.9.3` in *`requirements.txt`*
+- *`docker-compose.yml`* for PostgreSQL
+    ```
+    # version: "2.27.1-desktop.1" - version in docker-compose.yml is obsolete -->
+    services:
+        web:
+            build: .
+            command: python /code/manage.py runserver 0.0.0.0:8000
+            volumes:
+                - .:/code
+            ports:
+                - 8000:8000
+            depends_on:
+                - db
+        db:
+            image: postgres:16
+            volumes:
+                - postgres_data:/var/lib/postgresql/data/
+            environment:
+                - "POSTGRES_HOST_AUTH_METHOD=trust"
+    volumes:
+        postgres_data:
+    ```
+- `DATABASES` in *`settings.py`*
+    ```py
+    DATABASES = {
+            "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "postgres",
+            "USER": "postgres",
+            "PASSWORD": "postgres",
+            "HOST": "db", # set in docker-compose.yml
+            "PORT": 5432, # default postgres port
+        }
+    }
+    ```
+- `docker-compose up -d --build` to force build new image instead of cache
