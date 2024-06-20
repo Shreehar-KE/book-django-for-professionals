@@ -90,4 +90,6 @@
   - for webpages without db
   - `assertTemplateUsed()`
 - `reverse()` from `django.urls`
-- `def setUp()` - to load the response into a response variable.
+- `def setUp()` - to load the response into a response variable
+- `resolve()` from `django.urls`
+  - `self.assertEqual(view.func.__name__, HomePageView.as_view().__name__)`
