@@ -64,3 +64,14 @@
     }
     ```
 - `docker-compose up -d --build` to force build new image instead of cache
+
+
+## Chapter 4: Bookstore Project
+- `AbstractUser` from `auth.models` to create a Customer User Model
+- `AUTH_USER_MODEL` in `settings.py`
+- Customizing `UserCreationForm` & `UserChangeForm` from `auth.forms` in `accounts/forms.py`
+  - `get_user_model()` from `django.contrib.auth`
+- modifying `admin.py` to create `CustomUserAdmin` based on `UserAdmin` from `auth.admin`
+  - `add_form`, `form`, `model`, `list_display`, `fieldsets`, `add_fieldsets`
+- registering both `CustomUser` & `CustomUserAdmin` in `admin.py` 
+
