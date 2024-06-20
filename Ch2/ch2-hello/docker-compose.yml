@@ -1,4 +1,4 @@
-version: "2.27.1-desktop.1"
+# version: "2.27.1-desktop.1" # version in docker-compose.yml is obsolete
 services:
   web:
     build: .
