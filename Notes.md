@@ -77,3 +77,17 @@
 - `TestCase` from `django.test`
   - `test`prefix for every method
   - `python manage.py test`
+
+## Chapter 5: Pages App
+- Using single project-level templates directory vs App-level templates directory
+  - `TEMPLATES` list - `"DIRS": [BASE_DIR / "templates"]`
+- project-level *`urls.py`* vs app-level *`urls.py`*
+  - `include()` from `django.urls`
+  - `as_view()` for CBVs
+- Generic Class Based View : `django.views.generic`
+  - *`TemplateView`*
+- `SimpleTestCase` from `django.test`
+  - for webpages without db
+  - `assertTemplateUsed()`
+- `reverse()` from `django.urls`
+- `def setUp()` - to load the response into a response variable.
