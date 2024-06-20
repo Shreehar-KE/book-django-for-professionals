@@ -74,4 +74,6 @@
 - modifying `admin.py` to create `CustomUserAdmin` based on `UserAdmin` from `auth.admin`
   - `add_form`, `form`, `model`, `list_display`, `fieldsets`, `add_fieldsets`
 - registering both `CustomUser` & `CustomUserAdmin` in `admin.py` 
-
+- `TestCase` from `django.test`
+  - `test`prefix for every method
+  - `python manage.py test`
