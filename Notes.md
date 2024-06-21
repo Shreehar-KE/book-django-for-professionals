@@ -137,3 +137,45 @@
   - `ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE`
   - Email Only Login
     - `ACCOUNT_USERNAME_REQUIRED`, `ACCOUNT_AUTHENTICATION_METHOD`, `ACCOUNT_EMAIL_REQUIRED`, `ACCOUNT_UNIQUE_EMAIL`
+
+## Chapter 9: Environment Variables
+- **environs[django]**
+  - **dj-database-url** included
+    ```py
+    from environs import Env
+    env = Env()
+    env.read_env()
+    ```
+- `SECRET_KEY`
+  - *`docker-compose.yml`*
+    ```
+    services:
+        web:
+            .
+            .
+            .
+            environment:
+                - "DJANGO_SECRET_KEY=/* secret-key */"
+    ```
+  - `SECRET_KEY=env("DJANGO_SECRET_KEY")` in *`settings.py`*
+  - `python3 -c "import secrets; print(secrets.token_urlsafe())"`
+- `ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]`
+- `DEBUG`
+  - *`docker-compose.yml`*
+      ```
+      services:
+          web:
+              .
+              .
+              .
+              environment:
+                  - "DJANGO_DEBUG=/* True or False */"
+      ```
+  - `DEBUG = env.bool("DJANGO_DEBUG")`
+- `DATABASES`
+    ```py
+    DATABASES = {
+        "default": env.dj_db_url("DATABASE_URL",
+        default="postgres://postgres@db/postgres")
+    }
+    ```
