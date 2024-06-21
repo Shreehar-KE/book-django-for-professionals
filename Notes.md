@@ -93,3 +93,14 @@
 - `def setUp()` - to load the response into a response variable
 - `resolve()` from `django.urls`
   - `self.assertEqual(view.func.__name__, HomePageView.as_view().__name__)`
+
+## Chapter 6: User Registration
+- `django.contrib.auth.urls`
+- `{% %}` & `{{ }}`
+- *`templates/registration/`* for *`login.html`*
+- `LOGIN_REDIRECT_URL` & `LOGOUT_REDIRECT_URL` in *`settings.py`*
+- URL paths are loaded top-to-bottom
+- `SignupPageView` in `accounts` app 
+  - *`templates/registration/signup.html`*
+  - app-level *`urls.py`* 
+  - `django.views.generic.CreateView`, `CustomUserCreationForm`, `success_url`
