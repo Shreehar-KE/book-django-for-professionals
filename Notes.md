@@ -110,6 +110,30 @@
   - {% load static %}
 - `STATIC_ROOT`, `STATICFILES_STORAGE`
   - `python manage.py collecstatic`
-- **Django Crispy Forms** & **Crispy Bootstrap5**
+- **django-crispy-forms** & **crispy-bootstrap5**
   - `{% load crispy_form_tags %}`
   - `CRISPY_ALLOWED_TEMPLATE_PACKS`, `CRISPY_TEMPLATE_PACK`
+
+## Chapter 8: Advanced User Registration
+- **django-allauth**
+  - **django.contrib.sites** framework, **allauth** & **allauth.account** apps
+  - `SITE_ID`
+  - `AUTHENTICATION_BACKENDS`
+    ```py
+    AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+        "allauth.account.auth_backends.AuthenticationBackend",
+        )
+    ```
+  - `allauth.account.middleware.AccountMiddleware` middleware
+  - `EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"`
+  - `ACCOUNT_LOGOUT_REDIRECT`
+  - allauth urls
+    - `allauth.urls` instead of `django.contrib.auth.urls` & `accounts.urls`
+    - *`templates/registration/`* -> *`templates/account/`*
+    - `account_logout`, `account_login`, `account_signup` urls
+  - `ACCOUNT_SESSION_REMEMBER`
+  - *`templates/account/logout.html`*
+  - `ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE`
+  - Email Only Login
+    - `ACCOUNT_USERNAME_REQUIRED`, `ACCOUNT_AUTHENTICATION_METHOD`, `ACCOUNT_EMAIL_REQUIRED`, `ACCOUNT_UNIQUE_EMAIL`
