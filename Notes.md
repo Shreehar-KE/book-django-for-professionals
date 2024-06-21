@@ -104,3 +104,12 @@
   - *`templates/registration/signup.html`*
   - app-level *`urls.py`* 
   - `django.views.generic.CreateView`, `CustomUserCreationForm`, `success_url`
+
+## Chapter 7: Static Assets
+- `STATIC_URL`, `STATICFILES_DIR`
+  - {% load static %}
+- `STATIC_ROOT`, `STATICFILES_STORAGE`
+  - `python manage.py collecstatic`
+- **Django Crispy Forms** & **Crispy Bootstrap5**
+  - `{% load crispy_form_tags %}`
+  - `CRISPY_ALLOWED_TEMPLATE_PACKS`, `CRISPY_TEMPLATE_PACK`
