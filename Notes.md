@@ -179,3 +179,31 @@
         default="postgres://postgres@db/postgres")
     }
     ```
+
+## Chapter 10: Email
+- New User Confirmation Emails
+    - *`templates/account/email/email_confirmation_subject.txt`*
+    - *`templates/account/email/email_confirmation_message.txt`*
+- changing `Domain Name` & `Site Name` in `Sites` app
+- `DEFAULT_FROM_EMAIL` in *`settings.py`*
+- Email Confirmation Page
+  - *`templates/account/email_confirm.html`*
+- Password Reset 
+  - *`templates/account/password_reset.html`*
+  - *`templates/account/password_reset_done.html`*
+  - *`templates/account/email/password_reset_key_message.txt`*
+  - *`templates/account/password_reset_from_key.html`*
+  - *`templates/account/password_reset_from_key_done.html`*
+- Password Change
+  - *`templates/account/password_change.html`* 
+- Custom SMTP
+  - Using Gmail (app password)
+  - Configurations in `settings.py`
+    ```py
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = 'your_email@example.com'  # Replace with your gmail address
+    EMAIL_HOST_PASSWORD = 'your_app_password'  # Replace with your app password from gmail
+    ```
