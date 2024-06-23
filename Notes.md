@@ -11,7 +11,7 @@
 - `docker build .` - to build the image
 - *`docker-compose.yml`* - list of instructions used to run the image as a container
     ```
-    # version: "2.27.1-desktop.1" - version in docker-compose.yml is obsolete -->
+    # version: "2.27.1-desktop.1" - no need, since version in docker-compose.yml is obsolete -->
     services:
         web:
             build: .
@@ -30,7 +30,7 @@
 - adding `psycopg2-binary==2.9.3` in *`requirements.txt`*
 - *`docker-compose.yml`* for PostgreSQL
     ```
-    # version: "2.27.1-desktop.1" - version in docker-compose.yml is obsolete -->
+    # version: "2.27.1-desktop.1" - no need, since version in docker-compose.yml is obsolete -->
     services:
         web:
             build: .
