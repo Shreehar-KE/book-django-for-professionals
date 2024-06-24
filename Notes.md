@@ -226,3 +226,11 @@
 - `admin.TabularInline`
   - `inlines` in `BookAdmin`
 - `book.reviews.all`
+
+## Chapter 13: File/Image Uploads
+- **pillow** for Image Processing
+- static v/s media
+- `MEDIA_ROOT` & `MEDIA_URL` in *`settings.py`*
+- `urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT`
+- `ImageField(upload_to=, blank=True)`
+- **django-storages** & **django-cleanup**
