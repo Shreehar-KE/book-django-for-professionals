@@ -207,3 +207,14 @@
     EMAIL_HOST_USER = 'your_email@example.com'  # Replace with your gmail address
     EMAIL_HOST_PASSWORD = 'your_app_password'  # Replace with your app password from gmail
     ```
+
+## Chapter 11: Books App
+- `Book` model
+  - `DecimalField(max_digits=, decimal_places=)`
+- `context_object_name`
+- `get_absolute_url()`
+  - `args=[str(self.id)]`
+- UUID
+  - `UUIDField()`, `uuid.uuid4` Encryption, `<uuid:pk>`
+- `setUpTestData(cls)`
+  - `@classmethod`
