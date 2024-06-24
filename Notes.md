@@ -218,3 +218,11 @@
   - `UUIDField()`, `uuid.uuid4` Encryption, `<uuid:pk>`
 - `setUpTestData(cls)`
   - `@classmethod`
+
+## Chapter 12: Reviews App
+- Foreign Keys
+  - one-to-one, one-to-many, many-to-many
+  - `related_name`
+- `admin.TabularInline`
+  - `inlines` in `BookAdmin`
+- `book.reviews.all`
