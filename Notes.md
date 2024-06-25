@@ -231,7 +231,7 @@
 - **pillow** for Image Processing
 - static v/s media
 - `MEDIA_ROOT` & `MEDIA_URL` in *`settings.py`*
-- `urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT`
+- `urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`
 - `ImageField(upload_to=, blank=True)`
 - **django-storages** & **django-cleanup**
 
@@ -246,3 +246,12 @@
   - `permission_required`
 - `UserPassesTestMixin`
 - `Groups` for applying permissions in bulk 
+
+## Chapter 15: Search
+- QuerySet
+  - `models.Manager`
+  - `queryset = Book.objects.filter(title__icontains="beginners")`
+- Q objects
+  - OR - | , AND - &
+- `get_queryset()`
+- `GET` for search form
