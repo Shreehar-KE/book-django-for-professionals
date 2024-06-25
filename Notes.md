@@ -234,3 +234,15 @@
 - `urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT`
 - `ImageField(upload_to=, blank=True)`
 - **django-storages** & **django-cleanup**
+
+## Chapter 14: Permissions
+- `login_required()` decorator & `LoginRequiredMixin`
+  - `login_url`, required by **django-allauth**
+- Custom Permissions
+  - using `Class Meta` of a DB model
+  - `[(name, description),]`
+  - Using Admin to apply permission
+- `PermissionRequiredMixin`
+  - `permission_required`
+- `UserPassesTestMixin`
+- `Groups` for applying permissions in bulk 
