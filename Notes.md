@@ -255,3 +255,37 @@
   - OR - | , AND - &
 - `get_queryset()`
 - `GET` for search form
+
+## Chapter 16: Performance
+- **django-debug-toolbar**
+  - `INTERNAL_IPS` config for docker
+    ```py
+    import socket
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
+    ```
+- URLconf
+  ```py
+  if settings.DEBUG:
+    import debug_toolbar
+    
+    urlpatterns = [
+    path("__debug__/", include(debug_toolbar.urls)),
+    ] + urlpatterns
+  ```
+- N+1 Queries problem
+- `search_related` or one-to-one & one-to-many
+- `prefetch_related()` for many-to-many
+- Django shell
+  - **django-extensions**, comes with **shell_plus**
+- `__` - lookup
+- Indexing
+  - can be applied using `class Meta`
+- Caching
+  - per-site cache, per-view cache, Template fragment caching, low-level cache API
+  - top & bottom middleware
+  - `CACHE_MIDDLEWARE_ALIAS`, `CACHE_MIDDLEWARE_SECONDS`, `CACHE_MIDDLEWARE_KEY_PREFIX`
+- Frontend Assets
+  - **django-compressor** for CSS & Js
+  - CDN for images
+  - **easy-thumbnails**
