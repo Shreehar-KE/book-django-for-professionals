@@ -289,3 +289,42 @@
   - **django-compressor** for CSS & Js
   - CDN for images
   - **easy-thumbnails**
+
+## Chapter 17: Security
+- Social Engineering
+  - Phishing
+- Deprecation Warnings
+  - `python -Wa manage.py test`
+- Deployment Checklist
+  - `python manage.py check --deploy`
+- *`docker-compose-prod.yml`*
+  - `docker compose -f docker-compose-prod.yml up -d`
+- `DEBUG=False` for production
+- using production values as default
+  - `DEBUG = env.bool("DJANGO_DEBUG", default=False)`
+- Secret Key
+  - `python -c "import secrets; print(secrets.token_urlsafe(38))`
+  - Docker & $$
+- SQL Injection
+  - Sanitizing the User Input
+- XSS 
+- CSRF
+  - `csrf_protect()`
+- Clickjacking
+- HTTPS/SSL
+  - `SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)` for production
+- HSTS
+    ```py
+    SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000) # 30 days
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
+    SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+    ```
+- Cookies
+    ```py
+    SESSION_COOKIE_SECURE = env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
+    CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
+    ```
+- Admin Hardening
+  - Changing the URL path
+  - **django-admin-honeypot** & **django-two-factor-auth**
+
